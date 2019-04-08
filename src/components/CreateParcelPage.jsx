@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Aside from './common/Aside.jsx';
 import Input from './common/Input.jsx';
 import TextArea from './common/TextArea.jsx';
-import { createParcel } from '../redux/actions/parcelActions';
+import { createParcel } from '../redux/actions/userParcelsAction';
 import style from '../assets/css/style.css';
 
 class CreateParcel extends Component {

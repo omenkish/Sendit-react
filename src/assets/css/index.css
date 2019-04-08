@@ -32,15 +32,6 @@ ul {
   padding: 0;
 }
 
-.button1 {
-  height: 25px;
-  background: #e8491d;
-  border: none;
-  padding: 0 15px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
 .dark {
   padding: 15px;
   background: #35424a;

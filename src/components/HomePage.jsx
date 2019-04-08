@@ -2,7 +2,10 @@ import React from 'react';
 import SectionCard from './indexPartials/Card.jsx';
 import Footer from './common/Footer.jsx';
 import styles from '../assets/css/index.css';
-import {final, back, world} from '../assets/images/index'
+import final from '../assets/images/final.jpg';
+import back from '../assets/images/back.jpg';
+import world from '../assets/images/world.jpg';
+
 
 const HomePage = () => (
   <div>
@@ -24,7 +27,7 @@ const HomePage = () => (
     <section id={styles.boxes}>
     <div className={styles.container}>
       <SectionCard  
-        src ={final}
+        src={require('../assets/images/final.jpg')}
         title = 'World Wide Service'
         text = 'With our various stations worldwide, we reach you at any part of the globe. You are just a click away from enjoying our\
         world className services.'

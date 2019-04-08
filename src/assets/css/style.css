@@ -49,9 +49,13 @@ header .container {
 .middle{
   margin-top: 10%;
 }
-#table td a{
-  text-decoration: none;
-  color: #5f9ea0;
+.btnToolbar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: unset; 
+  -ms-flex-pack: start;
+  justify-content: space-evenly;
 }
 .adminBox a{
   text-decoration: none;
@@ -110,10 +114,6 @@ ul {
   animation-name: fadeOut;
 }
 
-.tableContainer {
-  width: 94%;
-  margin-left: 3%;
-}
 /*header*/
 header {
   position: fixed;
@@ -261,17 +261,7 @@ select[name='metric'] {
   width: 70%;
   float: right;
 } */
-/* Set a style for all buttons */
-#main button, #boxes button {
-  background-color: #22333d;
-  color: white;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-  padding: 8px 14px;
-  border-radius: 4px;
-}
+
 #main form textarea{
   max-height: 40px;
 }
@@ -290,8 +280,7 @@ button:hover {
 #profileTitle h1 {
   color: #696969;
   text-transform: capitalize; 
-  margin-left: 16%;
-  margin-top: 20px;
+  font-size: 35px;
 }
 
 /* boxes */
@@ -334,8 +323,8 @@ button:hover {
   float: left;
   margin: 6px 5px;
   text-align: center;
-  width: 45%;
-  padding: 10px;
+  width: 31%;
+  padding: 5px;
   border-top: #35424a solid 3px;
   border-bottom: #35424a solid 3px;
   border-radius: 2%;
@@ -356,9 +345,9 @@ h2#faText{
   border-bottom: #35424a solid 2px;
 }
 
-img.avatar {
+.avatar {
   height: 20%;
-  width: 25%;
+  width: 50%;
   border-radius: 50%;
 }
 .submitbtn{
@@ -388,34 +377,13 @@ img.avatar {
   background-color: #ffffff;
 }
 
-#changeDestination button{
-  clear: both;
-  margin-left: inherit;
-  width: 100%;
-}
-/* Admin Page */
-#deliveries table {
-  margin: 5px 1px;
-  width: 100%;
-  padding: 5px;
-  
-}
-#table button {
-  width: auto;
-  padding: 12px;
-}
-#deliveries table, th, td {
-  border-collapse: collapse;
-}
-#deliveries table button {
-  width: auto;
-  padding: 12px;
-}
-#deliveries table a {
+.table span, a:hover{
  text-decoration: none;
  color: #5f9ea0;
 }
-
+.table span{
+  cursor: pointer;
+}
 /** Modal area**/
 
 /* Modal Header */
@@ -437,9 +405,7 @@ img.avatar {
 #myModal .modalBody h3{
   color: red;
 }
-#myModal .modalBody form button{
-  width: 50%;
-}
+
 
 /* #moda.modalContent .modalFooter #cancelbtn, .modalFooter #cancelbtn{
   margin-left: 80%;
@@ -487,57 +453,13 @@ img.avatar {
   animation-duration: 0.4s
 }
 
-#table button{
-  padding: 5px;
-}
-.modal #userParcel p{
-  margin: 0 8%  ;
-  border-bottom: #888 solid 2px;
-}
-.modal #userParcel label{
-  
-  font-weight: bold;
-} 
-.modal #userParcel span{
-  float: right;
-  
-} 
-.modalBody form{
-  width: 100%;
-}
-.modalBody input[type=text]{
-  width: 94%;
-  border-radius: 8px;
-  
-}
+
 /* Modal Footer */
 div.modalFooter {
   padding: 2px 7px;
   background-color: #35424a;
   color: white;
   border-bottom: #e8491d solid 3px;
-}
-
-#myModal button, #userModal button{
-  width: 18%;  
-}
-
-/* #myModal button#deletebtn, #userModal button#deletebtn{
-  background-color: #696969;  
-} */
-#userModal button#cancelbtn{ 
-  margin-left: 60%;
-}
-.modalFooter #cancelbtn {
-  background-color: #888;
-  margin-left: 50%;
-}
-#userModal button#mapbtn{
-  width: auto;
-  background-color: goldenrod; 
-}
-#myModal button#delete, button#makeAdmin, #userModal button#delete{
-  background-color: red;
 }
 
 /* Add Animation */
@@ -592,10 +514,6 @@ footer a {
     
   }
 
-  .tableContainer {
-    width: 100%;
-    overflow: auto;
-  }
   .dashboardContainer {
     width: 100%;
     margin: 2px;
@@ -605,9 +523,6 @@ footer a {
     position: unset;
   }
   
-  #profileTitle h1 {
-    margin-left: 3%;
-  }
   #main, #boxes {
     margin-left: 6px;    
   }
@@ -630,12 +545,6 @@ footer a {
   .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
     float: none;
     width: 94%;
-  }
-  #main button {
-    width: 94%;
-  }
-  #boxes button {
-    width: 40%;
   }
 
   #main form div.center{
@@ -670,16 +579,6 @@ footer a {
   #boxes div#proBox{
     margin-left: 15px;
   }
-  #boxes .order button {
-    width: 94%;
-  }
-  #boxes #transit a {
-    margin: 0 15px;
-  }
-
-  #boxes #transit button {
-    width: 29%;
-  }
 
   #boxes .order form input, textarea, select{
     font-size: 15px;
@@ -689,22 +588,7 @@ footer a {
     width: 100%;
     margin-left: unset; 
   }
-  #boxes #changeDestination button{
-    width: 92%;
-    margin-left: 0;
-    
-   
-     
-  }
-  #deliveries table{
-    width: 94%;
-  }
-  #table{
-    width: 100%;
-  }
-  #table button{
-    width: 100%;
-  }
+  
   #main div.formLeft {
     float: none;
     margin: 6px 10px;
@@ -727,18 +611,6 @@ footer a {
     animation-duration: 0.6s
   }
 
-  #myModal button#cancelbtn, #myModal button#delete,#userModal button#cancelbtn, #userModal button#delete {
-    width: 25%;
-    background-color: #696969;
-  }
-  #userModal button#delete{
-    background-color: red;
-  }
-
-  #myModal button#makeAdmin{
-    width: auto;
-  }
-
   .modalBody #userParcel{
     width: 100%;
   }
@@ -755,10 +627,6 @@ footer a {
   .modalFooter #delete {
     background-color: red;
     margin-left: unset;
-  }
-  #userModal button#cancelbtn{
-    float: none;
-    margin-left: unset; 
   }
   #changeDestination .center{
     clear: both;

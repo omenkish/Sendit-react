@@ -38,7 +38,7 @@ module.exports = (env) => {
         ]
       },
       {
-        test: /\.(jpeg|jpg|JPG|png|gif|mp3)$/i,
+        test: /\.(jpeg|jpg|JPG|png|gif|PNG)$/,
         include: path.join(__dirname, 'src'),
         loaders: ['file-loader']
       }
@@ -55,10 +55,9 @@ module.exports = (env) => {
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, 'public/dist'),
       historyApiFallback: true,
       hot:true,
-      publicPath: '/dist/',
       watchContentBase: true,
     },
     performance: {

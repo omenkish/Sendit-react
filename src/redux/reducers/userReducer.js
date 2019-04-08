@@ -1,26 +1,29 @@
+import {
+  GET_USER,
+  GET_USER_FAILURE,
+  USER_LOADING
+  
+} from '../actions/types';
 const initialState = {
+  users: [],
+  user: {},
+  isLoading: false
 };
 
 export default (state=initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_USER':
+    case USER_LOADING:
       return {
         ...state,
+        isLoading: true
       };
-    case 'LOGIN_USER_FAIL':
+    case GET_USER:
       return {
         ...state,
-        errorMessage: action.payload
+        isLoading: false,
+        user: action.payload
       };
-      case 'SIGNUP_USER':
-      return {
-        ...state,
-      };
-    case 'SIGNUP_USER_FAIL':
-      return {
-        ...state,
-        errorMessage: action.payload
-      };
+    
     default:
       return state;
   }
