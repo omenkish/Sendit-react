@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 const ParcelItem = ({ parcel }) => {
-  console.log(parcel)
   return (
     <div className="container-fluid">
       <h2>{parcel.order_number}</h2>

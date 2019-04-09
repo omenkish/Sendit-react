@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Table, Modal } from 'react-bootstrap';
-import Parcelitem from './ParcelItem.jsx';
 import EditParcel from './EditParcel.jsx';
-import { getParcel, cancelParcel, editDestination } from '../redux/actions/userParcelsAction';
+import Parcelitem from './ParcelItem.jsx';
+import { getParcel } from '../redux/actions/userParcelsAction';
+import { changeLocation, deliverParcel } from '../redux/actions/parcelActions';
 import style from '../assets/css/style.css';
 
 
-class UserParcelsList extends Component {
+class ParcelsList extends Component {
 
   state = {
     modalIsOpen: false,
@@ -17,11 +18,11 @@ class UserParcelsList extends Component {
     await this.props.getParcel(parcelId);
     this.setState({ modalIsOpen: true, modalContent: 'details' });
   }
-  handleCancelClick =  async () => {
-    await this.props.cancelParcel(this.state.selectedParcelId, this.closeModal);
+  handleDeliverClick =  async () => {
+    await this.props.deliverParcel(this.state.selectedParcelId, this.closeModal);
   }
-  openDeleteModal = (id) => {
-    this.setState({ modalIsOpen: true, modalContent: 'delete', selectedParcelId: id });
+  openDeliverModal = (id) => {
+    this.setState({ modalIsOpen: true, modalContent: 'deliver', selectedParcelId: id });
   }
 
   openEditModal = (id) => {
@@ -31,35 +32,33 @@ class UserParcelsList extends Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false, modalContent: null });
   }
+
   render() {
-    const { parcels, parcel, loading, editDestination } = this.props;
+    const { parcels, parcel, changeLocation } = this.props;
     const { modalContent } = this.state;
 
-    const deleteModal = (
+    const deliverModal = (
       <div>
-        <div> <h3>Are you sure you want to cancel this order? </h3></div>
+        <div> <h3>Sure to mark order as delivered? </h3></div>
         <div>
           <button onClick={this.closeModal} className="btn btn-outline-info mr-2">No</button>
-          <button onClick={this.handleCancelClick} className="btn btn-danger">Yes</button>
+          <button onClick={this.handleDeliverClick} className="btn btn-danger">Yes</button>
         </div>
       </div>
     );
 
     let modalBody;
     if(modalContent === 'details'){
-      modalBody = <Parcelitem parcel={parcel}/>
+      modalBody = <Parcelitem parcel={parcel}/>;
     }
     else if(modalContent === 'edit'){
-      modalBody = <EditParcel  
-          submitFunction = {editDestination}
-          id={this.state.selectedParcelId} 
-          closeModal={this.closeModal}
-          type="destination"
-          />
-          
+      modalBody = <EditParcel
+        submitFunction={changeLocation}
+        id={this.state.selectedParcelId}
+        closeModal={this.closeModal}/>
     }
-    else if(modalContent === 'delete'){
-      modalBody = deleteModal;
+    else if(modalContent === 'deliver'){
+      modalBody = deliverModal;
     }
     else {
       modalBody = '';
@@ -73,7 +72,7 @@ class UserParcelsList extends Component {
       title = 'Edit Parcel Location';
     }
     else {
-      title = 'Cancel Parcel Order';
+      title = 'Deliver Parcel Order';
     }
 
     return (
@@ -83,11 +82,11 @@ class UserParcelsList extends Component {
             <tr className="text text-center">
               <th>S/N</th>
               <th>Order No.</th>
-              <th>Description</th>
               <th>Receiver No.</th>
               <th>Destination </th>
-              <th>Cost (&#8358;)</th>
-              <th>Status</th>
+              <th>Cur. Location </th>
+              <th>Shipping Status</th>
+              <th>Cancelled</th>
               <th>Action</th>
 
             </tr>
@@ -98,25 +97,28 @@ class UserParcelsList extends Component {
                 <tr key={index + 1}>
                   <td>{index + 1}</td>
                   <td><span onClick={this.handleDetailsClick(`${parcel.order_number}`)}>{parcel.order_number}</span></td>
-                  <td>{parcel.description}</td>
                   <td>{parcel.receiver_number}</td>
                   <td>{`${parcel.receiver_address}. ${parcel.state}`}</td>
-                  <td>{parcel.price}</td>
-                  <td>{parcel.cancelled ? 'Cancelled' : 'Active'}</td>
+                  <td>{parcel.current_location}</td>
+                  <td>{parcel.status}</td>
+                  <td>{parcel.cancelled ? 'Yes' : 'No'}</td>
                   <td >
                     <button 
-                    className="btn btn-outline-info btn-sm mr-3"
+                    className="btn btn-outline-info btn-sm mr-2"
                     onClick={this.handleDetailsClick(`${parcel.order_number}`)}
                     >Details</button>
-                    <button
-                      onClick={() => this.openEditModal(parcel.order_number)}
-                      className="btn btn-outline-secondary btn-sm mr-3"
-                    >Edit</button>
-                    <button 
-                      onClick={() => this.openDeleteModal(parcel.order_number)}
-                      className="btn btn-outline-danger btn-sm"
-                    >Cancel</button>
-
+                    {
+                      ((!parcel.cancelled && parcel.status !== 'delivered') && <>
+                        <button
+                        onClick={() => this.openEditModal(parcel.order_number)}
+                        className="btn btn-outline-secondary btn-sm mr-2"
+                        >Edit</button>
+                        <button 
+                          onClick={() => this.openDeliverModal(parcel.order_number)}
+                          className="btn btn-outline-danger btn-sm"
+                        >Deliver</button>
+                      </>)
+                    }
                   </td>
                 </tr>
               ))
@@ -126,6 +128,7 @@ class UserParcelsList extends Component {
         <Modal show={this.state.modalIsOpen}
           onHide={this.closeModal}
           size={modalContent === 'details' ? 'lg' : 'md'}
+          dialogClassName="mt-3"
         
         >
           <Modal.Header closeButton>
@@ -147,14 +150,14 @@ class UserParcelsList extends Component {
   }
 }
 
-UserParcelsList.propTypes = {
+ParcelsList.propTypes = {
   getParcel: PropTypes.func.isRequired,
-  cancelParcel: PropTypes.func.isRequired,
-  parcels: PropTypes.array.isRequired
+  changeLocation: PropTypes.func,
+  deliverParcel: PropTypes.func,
+  parcel: PropTypes.object.isRequired
 }
-
 const mapStateToProps = state => ({
-  loading: state.userParcels.isLoading,
-  parcel: state.userParcels.parcel
-})
-export default connect(mapStateToProps, { getParcel, cancelParcel, editDestination })(UserParcelsList);
+  parcel: state.userParcels.parcel,
+
+});
+export default connect(mapStateToProps, { changeLocation, deliverParcel, getParcel })(ParcelsList);

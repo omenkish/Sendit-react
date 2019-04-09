@@ -23,10 +23,11 @@ export const createParcel = parcelData => async (dispatch) => {
   }
 };
 
-export const getUserParcels = () => async (dispatch) => {
+export const getUserParcels = (id) => async (dispatch) => {
   dispatch({ type: PARCEL_LOADING});
   try {
-    const response = await sendHttpRequest('/users/parcels', 'GET');
+    const response = id ? 
+    await sendHttpRequest(`/users/${id}/parcels`, 'GET') : await sendHttpRequest('/users/parcels', 'GET');
     return dispatch({ type: GET_USER_PARCELS_SUCCESS, payload: response.parcels})
   } catch ({ response }) {
     return dispatch({ type: GET_USER_PARCELS_FAILURE, payload: response.data.message });
@@ -68,7 +69,7 @@ export const cancelParcel= (id, closeModal) => async (dispatch) => {
   try {
     const response = await sendHttpRequest(`/parcels/${id}`, 'PATCH');
     dispatch({ type: DELETE_PARCEL, payload: response.parcel });
-    toast.success('Destination updated successfully');
+    toast.success('Order cancelled successfully');
     return closeModal();
     
   } catch (error) {

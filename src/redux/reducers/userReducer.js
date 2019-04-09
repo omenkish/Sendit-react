@@ -1,6 +1,6 @@
 import {
   GET_USER,
-  GET_USER_FAILURE,
+  GET_USERS,
   USER_LOADING
   
 } from '../actions/types';
@@ -23,7 +23,12 @@ export default (state=initialState, action) => {
         isLoading: false,
         user: action.payload
       };
-    
+    case GET_USERS:
+      return {
+        ...state,
+        isLoading: false,
+        users: action.payload
+      };
     default:
       return state;
   }

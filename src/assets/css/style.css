@@ -66,14 +66,6 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
-#mytable {
-  width: 100%;
-  margin-left: 1%;
-}
-#table {
-  width: 100%;
-  margin: unset;
-}
 .hide{
   display: none;
 }

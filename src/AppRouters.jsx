@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Router, Route , Switch, Link, NavLink} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import '!style-loader!css-loader!react-toastify/dist/ReactToastify.css'; 
+import AllParcelsPage from './components/AllParcelsPage.jsx'
 import CreateParcelPage from './components/CreateParcelPage.jsx';
 import DashboardPage from './components/DashboardPage.jsx';
 import Header from './components/common/Header.jsx';
@@ -28,7 +29,7 @@ const AppRouter = () => (
         <Route path="/profile" component={ProfilePage} exact/>
         <Route path="/orders" component={DashboardPage} exact/>
         <Route path="/users" component={DashboardPage} exact/>
-        <Route path="/all_orders" component={DashboardPage} exact/>
+        <Route path="/all-orders" component={AllParcelsPage} exact/>
         <Route path="/parcels/edit/:id" component={DashboardPage} exact/>
         <Route path="/users/edit/:id" component={DashboardPage} exact/>
         <Route component={NotFoundPage}/>
