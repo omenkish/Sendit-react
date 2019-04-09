@@ -37,11 +37,10 @@ span#reg  a, #signup h4 a {
 }
 
 #signin form {
-  border: 3px solid #f1f1f1;
-  width: 40%;
-  padding: 12px 20px; 
+  width: 45%;
+  padding: 12px 10px;
   margin: 5% 27%;
-  box-shadow:  5px 8px 0 #ccc;
+  margin-top: 150px;
   border-radius: 2%;
   background-color: #ffffff;
   text-align: center;
@@ -54,26 +53,24 @@ span#reg  a, #signup h4 a {
   border-bottom: #e8491d solid 1px;
 }
 
+.buttonLoading {
+  float: right;
+  padding: 3px 3px 0 10px;
+}
 
 #signin form input[type=email], #signin form input[type=password]{
-  margin-left: 8%;
-  margin-top: 12px;
-  width: 75%;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 90%;
 }
 #signin form button {
   margin: 8px 8px 8px 0;
-  width: 40%;
+  width: 90%;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  background: #35424a;
 }
-input[type=text],input[type=password],input[type=email],input[type=tel] {
-  width: 70%;
-  padding: 12px 20px;
-  margin: 8px 18px;
-  display:inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  
-}
-
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
@@ -93,13 +90,16 @@ span.psw {
 span.psw a {
   color: #5f9ea0;;
 }
-#signin .bottom-form-area {
-  background-color: #f4f4f4; 
-  margin-left: 60px;
+#signin .bottomFormArea {
+  background-color: #f4f4f4;
+  margin-left: 18px;
   text-align: left;
   padding: 10px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-.bottom-form-area {
+.bottomFormArea {
   background-color: #f4f4f4; 
   margin-left: 90px;
 }
@@ -189,7 +189,7 @@ span.psw a {
     background-color: #35424a;
   }
   
-  #signin .bottom-form-area {
+  #signin .bottomFormArea {
     display: inline-block;
     text-align: left;
     padding: 8px;

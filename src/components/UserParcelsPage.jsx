@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Aside from './common/Aside.jsx';
-import { getAllParcels } from '../redux/actions/parcelActions';
+import { getUserParcels } from '../redux/actions/userParcelsAction';
 import ParcelsList from './ParcelsList.jsx';
 import style from '../assets/css/style.css';
 
-class allParcels extends Component {
+class AdminUserParcels extends Component {
   componentDidMount(){
-    this.props.getAllParcels();
+    const { id } = this.props.match.params;
+    this.props.getUserParcels(id);
   }
 
   render() {
@@ -33,11 +34,11 @@ class allParcels extends Component {
   }
 } 
 
-allParcels.propTypes = {
-  getAllParcels: PropTypes.func.isRequired,
+AdminUserParcels.propTypes = {
+  getUserParcels: PropTypes.func.isRequired,
   parcels: PropTypes.array.isRequired
 };
 const mapStateToProps = state => ({
-  parcels: state.allParcels.parcels
+  parcels: state.userParcels.parcels
 });
-export default connect(mapStateToProps, { getAllParcels })(allParcels);
+export default connect(mapStateToProps, { getUserParcels })(AdminUserParcels);

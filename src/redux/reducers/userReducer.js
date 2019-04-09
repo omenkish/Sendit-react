@@ -1,7 +1,8 @@
 import {
   GET_USER,
   GET_USERS,
-  USER_LOADING
+  USER_LOADING,
+  CREATE_ADMIN
   
 } from '../actions/types';
 const initialState = {
@@ -28,6 +29,12 @@ export default (state=initialState, action) => {
         ...state,
         isLoading: false,
         users: action.payload
+      };
+    case CREATE_ADMIN:
+      return {
+        ...state,
+        isLoading: false,
+        users: state.users.map(user => (user.id === action.payload.id ? action.payload : user))
       };
     default:
       return state;

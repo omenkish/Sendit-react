@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Circle } from 'better-react-spinkit';
+import Form from 'react-bootstrap/Form';
 import { postRequest } from '../../redux/actions/authAction';
 import Input from '../common/Input.jsx';
-import '../../assets/css/signin.css';
+import style from '../../assets/css/signin.css';
 
 class FormContainer extends Component {
     state = {
@@ -31,38 +33,48 @@ class FormContainer extends Component {
   }
   render() {
     const { email, password, error } = this.state;
+    const { isAuthenticated, isLoading, error: reduxError } = this.props.auth;
     return (
-      <form id="login" onSubmit={this.handleSubmit}>
+      <Form id={style.login} onSubmit={this.handleSubmit}>
         <div><h1> Sign In <i className="fa fa-arrow-alt-circle-right"></i></h1></div>
-          <div id="message">{this.state.error}</div>
-          <Input 
-            type="email"
-            id="email"
-            value={email}
-            placeholder="Enter your email"
-            handleChange={this.handleChange}
-            required
-          />
-          <Input 
-            type="password"
-            id="password"
-            value={password}
-            placeholder="Enter your password"
-            handleChange={this.handleChange}
-            required
-          />
+          { reduxError && <div className={style.error}>{reduxError}</div>}
+
+          <Form.Group >
+              <Form.Control size="md" 
+              type="email"
+              id="email"
+              value={email}
+              placeholder="Enter your email"
+              onChange={this.handleChange}
+              required
+              />
+          </Form.Group>
+
+          <Form.Group >
+              <Form.Control size="md" 
+              type="password"
+              id="password"
+              value={password}
+              placeholder="Enter your password"
+              onChange={this.handleChange}
+              required
+              />
+          </Form.Group>
 
         <div>
-          <button type="submit"> Login</button>
-          <span id="remember">
-            <Input type="checkbox" defaultChecked id="Remember" /> Remember me
-          </span>
+          <button type="submit" disabled={isLoading}> Login
+          {isLoading && (
+              <span className={style.buttonLoading}>
+                <Circle color={'rgba(255,255,255,1)'} />
+              </span>
+            )}
+          </button>
         </div>
-        <div className="bottom-form-area">
-          <span id="reg">Not yet registered? <Link to="/register">Sign up</Link></span>
-          <span className="psw"> <Link to="#">Forgot password?</Link></span>
+        <div className={style.bottomFormArea}>
+          <span id={style.reg}>Not yet registered? <Link to="/register">Sign up</Link></span>
+          <span className={style.psw}> <Link to="#">Forgot password?</Link></span>
         </div>
-      </form>
+      </Form>
     );
   }
 }

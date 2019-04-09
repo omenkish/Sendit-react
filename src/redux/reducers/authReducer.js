@@ -23,7 +23,6 @@ export default (state=initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        isAuthenticated: false,
         error: action.payload
       };
       case 'SIGNUP_USER':
@@ -37,7 +36,6 @@ export default (state=initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        isAuthenticated: false,
         error: action.payload
       };
     default:

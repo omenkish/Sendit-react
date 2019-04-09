@@ -12,6 +12,8 @@ import NotFoundPage from './components/NotFoundPage.jsx';
 import ProfilePage from './components/ProfilePage.jsx';
 import RegisterPage from './components/RegisterPage.jsx';
 import ServicesPage from './components/ServicesPage.jsx';
+import UserParcelsPage from './components/UserParcelsPage.jsx';
+import UsersPage from './components/UsersPage.jsx';
 import { history } from './redux/store/store'
 
 const AppRouter = () => (
@@ -21,17 +23,16 @@ const AppRouter = () => (
       <ToastContainer autoClose={3000} position="top-right" />
       <Switch>
         <Route path="/" component={HomePage} exact/>
-        <Route path="/services" component={ServicesPage} exact/>
+        <Route path="/services" component={ServicesPage} />
         <Route path="/login" component={LoginPage} exact/>
-        <Route path="/register" component={RegisterPage} exact/>
-        <Route path="/dashboard" component={DashboardPage} exact/>
-        <Route path="/create" component={CreateParcelPage} exact/>
-        <Route path="/profile" component={ProfilePage} exact/>
-        <Route path="/orders" component={DashboardPage} exact/>
-        <Route path="/users" component={DashboardPage} exact/>
-        <Route path="/all-orders" component={AllParcelsPage} exact/>
-        <Route path="/parcels/edit/:id" component={DashboardPage} exact/>
-        <Route path="/users/edit/:id" component={DashboardPage} exact/>
+        <Route path="/register" component={RegisterPage} />
+        <Route path="/dashboard" component={DashboardPage} />
+        <Route path="/create" component={CreateParcelPage} />
+        <Route path="/profile" component={ProfilePage} />
+        <Route path="/users/:id/parcels" component={UserParcelsPage} />
+        <Route path="/orders" component={DashboardPage} />
+        <Route path="/users" component={UsersPage} />
+        <Route path="/all-orders" component={AllParcelsPage} />
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
