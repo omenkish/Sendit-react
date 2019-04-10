@@ -39,8 +39,11 @@ module.exports = (env) => {
       },
       {
         test: /\.(jpeg|jpg|JPG|png|gif|PNG)$/,
-        include: path.join(__dirname, 'src'),
-        loaders: ['file-loader']
+        use: [
+          {
+            loader: 'url-loader'
+          }
+        ]
       }
     ]
     },

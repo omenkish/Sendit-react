@@ -2,9 +2,7 @@ import React from 'react';
 import SectionCard from './indexPartials/Card.jsx';
 import Footer from './common/Footer.jsx';
 import styles from '../assets/css/index.css';
-import final from '../assets/images/final.jpg';
-import back from '../assets/images/back.jpg';
-import world from '../assets/images/world.jpg';
+import { final, world, back } from '../assets/images/index';
 
 
 const HomePage = () => (
@@ -16,18 +14,11 @@ const HomePage = () => (
       </div>
     </section>
     <section id={styles.search}>
-      <div className={styles.container}>
-        <h3>Search for an order</h3>
-        <form>
-          <input type="search" placeholder="Enter Order number ...."/>
-          <button type="submit" className={styles.button1}>search</button>
-        </form>
-      </div>
     </section>
     <section id={styles.boxes}>
     <div className={styles.container}>
       <SectionCard  
-        src={require('../assets/images/final.jpg')}
+        src={final}
         title = 'World Wide Service'
         text = 'With our various stations worldwide, we reach you at any part of the globe. You are just a click away from enjoying our\
         world className services.'
@@ -39,8 +30,8 @@ const HomePage = () => (
       />
       <SectionCard  
         src ={world}
-        title = 'HTML5 Styling'
-        text = 'This is a dummy text. It depends on how you wish to define the term dummy but i bet even a child knows what it is and how to use it.'
+        title = 'Quality control'
+        text = 'We also provide procurement services. We can help you purchase from China, USA and India. We inspect such goods to make sure they match the description precisely.'
       />
     </div>
   </section>

@@ -45,7 +45,7 @@ export class RegisterFormContainer extends Component {
 
       <Form id={styles.create} onSubmit={this.handleSubmit}>
         <div className="mb-sm-4"><h1>Create Account <i className="fa fa-plus-circle"></i> </h1></div>
-          { reduxError && <div className={styles.error} >{reduxError}</div>}
+          { reduxError && <div className={`${styles.error} mb-4`} >{reduxError}</div>}
 
           <Form.Group >
             <Form.Control size="md" 

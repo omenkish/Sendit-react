@@ -50,7 +50,6 @@ span#reg  a, #signup h4 a {
   border-radius: 2%;
   background-color: #ffffff;
   text-align: center;
-  z-index: 1;
 
 }
 #signin form h1,  #signup form h1{
@@ -117,10 +116,9 @@ span.psw a {
   padding: 10px 20px; 
   margin: 5% 30% 3% 30%;
   background-color: #ffffff;
-  z-index: 1;
 }
 
-#signup form input[type=text],input[type=password],input[type=email],input[type=tel]{
+#signup form input {
   width: 90%;
   margin-left: 25px;
 }
@@ -145,7 +143,82 @@ span.psw a {
 
 
 /* Change style for span and cancel button on extra small screen */
-@media screen and (max-width: 764px) {
+@media screen and (max-width: 1199px) {
+  
+}
+
+@media screen and (max-width: 991px) {
+  
+}
+
+@media screen and (max-width: 800px) {
+  #signin,
+  #signup,
+  .container
+ {
+    float: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+    
+  }
+  span.psw
+ {
+    display: inline-block;    
+  }
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  header ul {
+    padding: 5px;
+    margin: 8px;
+  }
+  #signin form, #signup form {
+    border: 1px solid #f1f1f1;
+    padding: 12px 20px; 
+    width: 100%;
+    margin: 30% 1%;
+    background-color: #ffffff;
+    box-shadow: none;
+    border-radius: none;
+  }
+  #signup form {
+    margin: 15% 0%;
+  }
+
+  #signin {
+    min-height: 100%;
+  }
+
+  
+  #signin form input[type=email], #signin form input[type=password] {
+    width: 100%;
+    margin: 10px 8px 8px 4px;
+  }
+  
+  #signin form button {
+    background-color: #35424a;
+    margin: 8px 8px 8px 4px;
+    width: 100%;
+  }
+
+  #signup button {
+    margin: 8px 8px 8px 4px;
+    width: 100%;
+    background-color: #35424a;
+  }
+  
+  #signin .bottomFormArea {
+    display: inline-block;
+    text-align: left;
+    padding: 8px;
+    margin: 6px;
+  }
+}
+
+@media screen and (max-width: 430px) {
   #signin,
   #signup,
   .container
@@ -170,7 +243,7 @@ span.psw a {
     padding: 5px;
     margin: 8px;
   }
-  #signin form, #signup form {
+  #signin form{
     border: 1px solid #f1f1f1;
     padding: 12px 20px; 
     width: 100%;
@@ -180,19 +253,31 @@ span.psw a {
     border-radius: none;
   }
   #signup form {
-    margin: 15% 1%;
+    margin: 15% 5%;
+    width: 90%;
+  }
+
+  #signup form input, #signup form input[type=text] {
+    margin-left: 5%;
+    width: 90%;
+    height: 35px;
+  }
+
+  #signup form button {
+    margin-left: 4%;
+    width: 90%;
   }
 
   #signin {
     min-height: 100%;
   }
 
-  #signup form input[type=text], #signup form input[type=password], #signup form input[type=email], #signup form input[type=tel],#signup form input[type=tel], #signup form textarea, #signup form input[type=number]{
+  /* #signup form input[type=text], #signup form input[type=password], #signup form input[type=email], #signup form input[type=tel],#signup form input[type=tel], #signup form textarea, #signup form input[type=number]{
     width: 100%;
     margin: 8px 8px 8px 4px;
-  }
+  } */
   
-  #signin form input[type=email], #signin form input[type=password] {
+  #signin form input[type=email]{
     width: 100%;
     margin: 10px 8px 8px 4px;
   }
