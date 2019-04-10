@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { postRequest } from '../../redux/actions/authAction';
 import style from '../../assets/css/signin.css';
 
-class FormContainer extends Component {
+export class FormContainer extends Component {
     state = {
       email: "",
       password: "",
@@ -31,8 +31,8 @@ class FormContainer extends Component {
 } 
   }
   render() {
-    const { email, password, error } = this.state;
-    const { isAuthenticated, isLoading, error: reduxError } = this.props.auth;
+    const { email, password } = this.state;
+    const { isLoading, error: reduxError } = this.props.auth;
     return (
       <Form id={style.login} onSubmit={this.handleSubmit}>
         <div><h1> Sign In <i className="fa fa-arrow-alt-circle-right"></i></h1></div>

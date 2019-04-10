@@ -53,6 +53,7 @@ class ParcelsList extends Component {
     }
     else if(modalContent === 'edit'){
       modalBody = <EditParcel
+        type=''
         submitFunction={changeLocation}
         id={this.state.selectedParcelId}
         closeModal={this.closeModal}/>

@@ -5,7 +5,8 @@ export default [
     othernames: 'Kevin',
     email: 'omenkish@omenkish.com',
     phone: '1234567890',
-    password: 'password'
+    password: 'password',
+    is_admin: true
   },
 
   {

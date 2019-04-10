@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editDestination } from '../redux/actions/userParcelsAction';
 import Form from 'react-bootstrap/Form';
 
-class EditParcel extends Component {
+export class EditParcel extends Component {
 
   state = {
     receiver_address: '', 
@@ -13,6 +12,7 @@ class EditParcel extends Component {
     location: '',
     error: ''
   }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     const {receiver_address, zip, state, location } = this.state;
@@ -33,7 +33,7 @@ class EditParcel extends Component {
     }
     else {
       if(!location) {
-        this.setState({ error: 'Please provide a valid location.'})
+        this.setState({ error: 'Please provide a valid location'})
       }
       else {
         const data = {

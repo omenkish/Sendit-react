@@ -12,13 +12,9 @@ env:
     - CC_TEST_REPORTER_ID=13207a11c08c1c1c9a88de0140b29ee9240cbac3c23ae0db96ab6874c6256253
   matrix:
     - REACT=16.7
-  NODE_ENV=test
 cache:
   directories:
     - "node_modules"
-branches:
-  only:
-    - develop
 before_script:
   - psql -c 'create database sendit;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

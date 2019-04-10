@@ -86,37 +86,4 @@ describe('UserParcelReducer test', () => {
     });
   });
 
-  // it('should handle the EDIT_COMMENT action', () => {
-  //   expect(
-  //     userParcelsReducer(initialState1, {
-  //       type: EDIT_COMMENT,
-  //       payload: initialState1.comments
-  //     })
-  //   ).toEqual({
-  //     ...initialState1,
-  //     isLoading: false,
-  //     comments: initialState1.comments.map(comment => (comment.id === action.payload.id ? action.payload : comment))
-  //   });
-  // });
-  // it('should handle the EDIT_COMMENTS_FAILURE action', () => {
-  //   expect(
-  //     userParcelsReducer(initialState1, {
-  //       type: EDIT_COMMENTS_FAILURE
-  //     })
-  //   ).toEqual({
-  //     ...initialState1,
-  //     isLoading: false
-  //   });
-  // });
-  // it('should handle the LIKE_COMMENT action', () => {
-  //   expect(userParcelsReducer(initialState1, { type: LIKE_COMMENT, payload: 4 })).toEqual({
-  //     ...initialState1
-  //   });
-  // });
-
-  // it('should handle the DISLIKE_COMMENT action', () => {
-  //   expect(userParcelsReducer(initialState1, { type: DISLIKE_COMMENT, payload: 4 })).toEqual({
-  //     ...initialState1
-  //   });
-  // });
 });

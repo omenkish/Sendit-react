@@ -8,7 +8,7 @@ import { createAdmin } from '../redux/actions/userActions';
 import style from '../assets/css/style.css';
 
 
-class UsersList extends Component {
+export class UsersList extends Component {
 
   state = {
     modalIsOpen: false,

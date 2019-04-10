@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { postRequest } from '../../redux/actions/authAction';
 import styles from '../../assets/css/signin.css';
 
-class RegisterFormContainer extends Component {
+export class RegisterFormContainer extends Component {
   // Initial state of user
    state = {
       firstname: '',

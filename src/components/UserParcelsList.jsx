@@ -8,12 +8,12 @@ import { getParcel, cancelParcel, editDestination } from '../redux/actions/userP
 import style from '../assets/css/style.css';
 
 
-class UserParcelsList extends Component {
+export class UserParcelsList extends Component {
 
   state = {
     modalIsOpen: false,
   }
-  handleDetailsClick = (parcelId) => async (e) => {
+  handleDetailsClick =  (parcelId) => async (e) => {
     await this.props.getParcel(parcelId);
     this.setState({ modalIsOpen: true, modalContent: 'details' });
   }
