@@ -8,13 +8,16 @@ import Aside from './common/Aside.jsx';
 import { getUser } from '../redux/actions/userActions'
 import { getUserParcels } from '../redux/actions/userParcelsAction';
 import style from '../assets/css/style.css';
-class ProfilePage extends Component {
+export class ProfilePage extends Component {
 
   componentDidMount() {
-    const decoded = jwt_decode(localStorage.getItem('token'));
-    const {getUser, getUserParcels } = this.props;
-    getUserParcels();
-    getUser(decoded.id);
+    if(process.env.NODE_ENV !== 'test'){
+      const decoded = jwt_decode(localStorage.getItem('token'));
+      const {getUser, getUserParcels } = this.props;
+      getUserParcels();
+      getUser(decoded.id);
+    }
+   
   }
 
   render() {

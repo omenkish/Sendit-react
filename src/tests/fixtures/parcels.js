@@ -32,7 +32,7 @@ export default [
     sent_on: '2019-04-06T23:56:17.410Z',
     delivered_on: null,
     status: 'pending',
-    cancelled: false,
+    cancelled: true,
     sender_address: 'portharcourt',
     receiver_address: 'Ikorodu road',
     current_location: 'Ilorin',

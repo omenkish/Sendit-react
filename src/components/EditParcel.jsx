@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editDestination } from '../redux/actions/userParcelsAction';
 import Form from 'react-bootstrap/Form';
 
-class EditParcel extends Component {
+export class EditParcel extends Component {
 
   state = {
     receiver_address: '', 

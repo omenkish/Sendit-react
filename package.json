@@ -7,7 +7,7 @@
     "build:dev": "webpack --mode development",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --hot --inline --open --mode development",
-    "test": "jest --coverage",
+    "test": "NODE_ENV=test jest --coverage",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },
@@ -15,9 +15,9 @@
     "setupFilesAfterEnv": [
       "./src/tests/setupTests.js"
     ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fixtures.js",
-      "\\.(css|less)$": "identity-obj-proxy"
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss|png|PNG|jpg|jpeg|ttf|woff|woff2)$": "jest-transform-stub"
     }
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "identity-obj-proxy": "^3.0.0",
     "ignore-styles": "^5.0.1",
     "jest": "^24.5.0",
+    "jest-transform-stub": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
