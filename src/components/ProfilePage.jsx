@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import jwt_decode from 'jwt-decode';
 import moment from 'moment';
-import { Card } from 'react-bootstrap';
 import Aside from './common/Aside.jsx';
 import { getUser } from '../redux/actions/userActions'
 import { getUserParcels } from '../redux/actions/userParcelsAction';
 import style from '../assets/css/style.css';
+import { top } from '../assets/images';
 export class ProfilePage extends Component {
 
   componentDidMount() {
@@ -27,21 +27,21 @@ export class ProfilePage extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-0 col-md-2">
             <section id={style.left}>
               <Aside/>
             </section>
           </div>
-          <div className={`${style.pageContent} col-md-9 ml-5`}>
+          <div className="col-12 col-lg-9" style={{position: 'unset'}}>
               <div id={style.profileTitle}><h1>My Profile</h1></div>
                   
                 <div className="rows">
-                  <div className="col-sm-12">
+                  <div className="col-sm-12" style={{position: 'unset'}}>
                   <section>
                     <div className={style.box}>
                       <div className={style.orderBox} id={style.profileBox}>
                           <div>
-                            <img src={require('../assets/images/top.PNG')} className={style.avatar} />
+                            <img src={top} className={style.avatar} />
                           </div>
                           <div>
                             <strong><span>Full Name: </span></strong> <span>{`${user.firstname} ${user.lastname}`}</span>
@@ -58,7 +58,7 @@ export class ProfilePage extends Component {
                         </div>
                       <div className={style.orderBox} id={style.profileBox} >
                         <h2>On Transit/pending</h2>
-                        <span className="fa-stack fa-5x stack">
+                        <span className="fa-stack fa-5x stack" style={{position: 'unset'}}>
                             <i className="fa fa-square fa-stack-2x"></i>
                             <i className="fa fa-shipping-fast fa-stack-1x fa-inverse"></i>
                         </span><h2><span className="text-info">{transitingOrders}</span> on Transit</h2>

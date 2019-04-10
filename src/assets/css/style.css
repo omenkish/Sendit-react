@@ -30,6 +30,12 @@ header .container {
   margin: auto;
   overflow: hidden;
 }
+.createButton {
+  background-color: #35424a;
+  color: white;
+  width: 50%;
+  margin-left: 25%;
+}
 .adminBox {
   float: left;
   margin: 6px 5px;
@@ -106,7 +112,7 @@ ul {
   animation-name: fadeOut;
 }
 
-/*header*/
+header
 header {
   position: fixed;
   top: 0;
@@ -164,12 +170,11 @@ header a:hover {
   position: fixed;
   height: 100%;
   padding: 15px 15px 0 15px;
-  top: 70px;
+  top: 55px;
   left: 0;
   background: #35424a;
   width: 15%;
   overflow: hidden;
-  z-index: 0;
 }
 #heading {
   font:15px/0.9 "Times New Roman", Times, serif;
@@ -198,7 +203,7 @@ header a:hover {
 }
 
 aside#sidebar { 
-  margin: 8px 0 0 6px;
+  margin: 0 0 0 6px;
 }
 
 /* Main section */
@@ -210,11 +215,9 @@ section#main {
 }
 
 #main form {
-  position: relative;
   padding: 15px;
   margin: 0 1%;
   background-color: #ffffff;
-  z-index: 1;
 }
 #main legend {
   text-align: center;
@@ -229,34 +232,8 @@ section#main {
   padding: 10px;
  
 }
-/*full width inputs*/
- input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 5px 0;
-  display: block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  
-}
-select[name='metric'] {
-  width: 100%;
-  min-height: 12px;
-  
-}
-.order label{
-  padding: 10px;
-  float: left;
-  clear: both;
-}
-/* .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
-  width: 70%;
-  float: right;
-} */
 
-#main form textarea{
-  max-height: 40px;
-}
+
 #main form div.center{
   clear: both;
   margin-left: 30%;
@@ -345,29 +322,6 @@ h2#faText{
 .submitbtn{
   float: left;
 }
-#boxes .cancelbtn, #boxes .edit{
-  background-color: #35424a;
-}
-
-/* order page */
-#boxes #changeDestination {
-  position: relative;
-  width: 60%;
-  margin-left: 20%;
-  padding: 6px 15px;
-  background: #ffffff;
-  z-index: 1;
-}
-
-#boxes .order form input, textarea{
-  font-size: 15px;
-}
-
-.order form{
-  margin: 12px;
-  padding: 6px;
-  background-color: #ffffff;
-}
 
 .table span, a:hover{
  text-decoration: none;
@@ -376,73 +330,10 @@ h2#faText{
 .table span{
   cursor: pointer;
 }
-/** Modal area**/
 
-/* Modal Header */
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-#myModal .modalBody h3{
-  color: red;
-}
-
-
-/* #moda.modalContent .modalFooter #cancelbtn, .modalFooter #cancelbtn{
-  margin-left: 80%;
-} */
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modalHeader {
-  text-align: center;
-  padding: 2px 16px;
-  background-color: #35424a;
-  color: white;
-  border-top: #e8491d solid 2px;
-}
-
-/* Modal Body */
-.modalBody {
-  padding: 2px 16px;
-  min-height: 70px
-}
-
-/* Modal Content */
-.modalContent {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  top: 25%;
-  border: 1px solid #888;
-  width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s
+.modalParcelDetail {
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -490,6 +381,13 @@ footer a {
   color: #e8491d;
   text-decoration: none;
 }
+
+@media screen and (max-width: 1010px) {
+  #left {
+    visibility: hidden;
+  }
+}
+
 /* Change style for span and cancel button on small screen */
 @media screen and (max-width: 764px) {
   .container,  

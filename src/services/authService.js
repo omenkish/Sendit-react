@@ -30,7 +30,8 @@ export const logout = () => {
     localStorage.removeItem('user');
     localStorage.clear();
   }
-  history.push('/login');
+  window.location.href = ('/login');
+  //history.replace('/login');
 }
 
 export const setHeader = () => {
