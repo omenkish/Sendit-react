@@ -4,8 +4,14 @@
   font-weight: bold;
   color: #ffffff;
   padding: 5px;
+  width: 90%;
+  margin-left: 20px;
+  padding-bottom: 12px;
   -webkit-animation-duration: 15s;animation-duration: 15s;
   -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+h1 {
+  font-size: 2rem;
 }
 .success {
   background-color: #3cb371;
@@ -106,21 +112,35 @@ span.psw a {
 
 /* Style the sign up page */
 #signup form {
+  width: 40%;
   display: block;
   padding: 10px 20px; 
-  margin: 2% 25% 3% 25%;
+  margin: 5% 30% 3% 30%;
   background-color: #ffffff;
   z-index: 1;
 }
 
 #signup form input[type=text],input[type=password],input[type=email],input[type=tel]{
-  margin-left: 17%;
+  width: 90%;
+  margin-left: 25px;
 }
 #signup .spa a {
    color: #5f9ea0;
 }
+
+#signup form button {
+  margin: 8px 8px 8px 25px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  background: #35424a;
+}
 #signup .spa {
   font-weight: bold;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-bottom: 10px;
 }
 
 

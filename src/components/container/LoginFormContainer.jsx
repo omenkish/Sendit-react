@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Circle } from 'better-react-spinkit';
 import Form from 'react-bootstrap/Form';
 import { postRequest } from '../../redux/actions/authAction';
-import Input from '../common/Input.jsx';
 import style from '../../assets/css/signin.css';
 
 class FormContainer extends Component {

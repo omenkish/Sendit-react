@@ -19,7 +19,13 @@ export const createParcel = parcelData => async (dispatch) => {
     const response = await sendHttpRequest('/parcels', 'POST', parcelData);
     return dispatch({ type: ADD_PARCEL, payload: response.parcel})
   } catch ({ response }) {
-    return dispatch({ type: ADD_PARCEL_FAIL, payload: response.data.message });
+    switch (response.status) {
+      case 400:
+      case 401:
+        return toast.error(response.data.message);
+      default:
+        return toast.error('Error creating order');
+    }
   }
 };
 
@@ -30,7 +36,7 @@ export const getUserParcels = (id) => async (dispatch) => {
     await sendHttpRequest(`/users/${id}/parcels`, 'GET') : await sendHttpRequest('/users/parcels', 'GET');
     return dispatch({ type: GET_USER_PARCELS_SUCCESS, payload: response.parcels})
   } catch ({ response }) {
-    return dispatch({ type: GET_USER_PARCELS_FAILURE, payload: response.data.message });
+    return toast.error(`Error fetching parcels!`);
   }
 };
 
@@ -39,8 +45,15 @@ export const getParcel = (order_number) => async (dispatch) => {
   try {
     const response = await sendHttpRequest(`/parcels/${order_number}`, 'GET');
     return dispatch({ type: GET_PARCEL_SUCCESS, payload: response.parcel})
-  } catch ({ response }) {
-    return dispatch({ type: GET_PARCEL_FAILURE, payload: response.data.message });
+  } catch (error) {
+    switch (error.response.status) {
+      case 400:
+      case 404:
+      case 401:
+        return toast.error(error.response.data.message);
+      default:
+        return toast.error(`Error getting parcel`);
+    }
   }
 };
 

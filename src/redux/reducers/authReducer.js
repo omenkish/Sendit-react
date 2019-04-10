@@ -1,6 +1,5 @@
 const initialState = {
   isAuthenticated: false,
-  user: {},
   isLoading: false,
   error: ''
 };
@@ -17,7 +16,6 @@ export default (state=initialState, action) => {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user:action.payload
       };
     case 'LOGIN_USER_FAIL':
       return {
@@ -30,7 +28,6 @@ export default (state=initialState, action) => {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user:action.payload
       };
     case 'SIGNUP_USER_FAIL':
       return {

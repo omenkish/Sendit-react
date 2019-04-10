@@ -28,7 +28,7 @@ export const logout = () => {
   if (localStorage.hasOwnProperty('token')){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    setAuthToken(false);
+    localStorage.clear();
   }
   history.push('/login');
 }

@@ -5,7 +5,7 @@ export const postRequest = (userData, url, actionTypeObj, actionTypeFailObj) => 
   try {
     const response = await sendHttpRequest(url, 'post', userData);
     localStorage.setItem('token', response.token);
-    return dispatch({ ...actionTypeObj, payload: response.data});   
+    return dispatch({ ...actionTypeObj });   
   }
   catch (error) {
     return dispatch({ ...actionTypeFailObj, payload: error.response.data.message });

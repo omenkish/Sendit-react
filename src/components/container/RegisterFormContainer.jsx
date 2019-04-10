@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Circle } from 'better-react-spinkit';
 import PropTypes from 'prop-types';
-import Input from '../common/Input.jsx';
+import Form from 'react-bootstrap/Form';
 import { postRequest } from '../../redux/actions/authAction';
 import styles from '../../assets/css/signin.css';
 
@@ -15,7 +16,6 @@ class RegisterFormContainer extends Component {
       phone: '',
       email: '',
       password: '',
-      error: ''
     };
 
   handleChange = (event) => {
@@ -39,64 +39,90 @@ class RegisterFormContainer extends Component {
     }
   }
   render() {
-    const { firstname, lastname:lastName, othernames:otherNames, phone, email, password, error } = this.state;
-    return (
-      <form id={styles.create} onSubmit={this.handleSubmit}>
-         <h1>Create Account <i className="fa fa-plus-circle"></i> </h1>
-            {error && <div id="message">{error}</div>}
-          <Input 
-            type="text"
-            id="firstname"
-            value={firstname}
-            placeholder="Enter your firstname"
-            handleChange={this.handleChange}
-            required
-          />
-          <Input 
-            type="text"
-            id="lastname"
-            value={lastName}
-            placeholder="Enter your lastname"
-            handleChange={this.handleChange}
-            required
-          />
-          <Input 
-            type="text"
-            id="othernames"
-            value={otherNames}
-            placeholder="Enter your other names"
-            handleChange={this.handleChange}
-            required={false}
-          />
-          <Input 
-            type="email"
-            id="email"
-            value={email}
-            placeholder="Enter your email"
-            handleChange={this.handleChange}
-            required
-          />
-          <Input 
-            type="tel"
-            id="phone"
-            value={phone}
-            placeholder="Enter your phone number"
-            handleChange={this.handleChange}
-            required
-          />
-          <Input 
-            type="password"
-            id="password"
-            value={password}
-            placeholder="Enter your password"
-            handleChange={this.handleChange}
-            required
-          />
+    const { firstname, lastname:lastName, othernames:otherNames, phone, email, password} = this.state;
+    const { isLoading, error: reduxError } = this.props.auth;
+    return (<>
 
-          <div>
-            <button type="submit"> Create Account</button><span className={styles.spa}> Already a member? <Link to="/login">Sign in</Link></span>
-          </div>
-      </form>
+      <Form id={styles.create} onSubmit={this.handleSubmit}>
+        <div className="mb-sm-4"><h1>Create Account <i className="fa fa-plus-circle"></i> </h1></div>
+          { reduxError && <div className={styles.error} >{reduxError}</div>}
+
+          <Form.Group >
+            <Form.Control size="md" 
+              type="text"
+              id="firstname"
+              value={firstname}
+              placeholder="Enter your firstname"
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group >
+            <Form.Control size="md" 
+              type="text"
+              id="lastname"
+              value={lastName}
+              placeholder="Enter your lastname"
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group >
+            <Form.Control size="md" 
+              type="text"
+              id="othernames"
+              value={otherNames}
+              placeholder="Enter your other names"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group >
+            <Form.Control size="md" 
+              type="email"
+              id="email"
+              value={email}
+              placeholder="Enter your email"
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group >
+            <Form.Control size="md" 
+              type="tel"
+              id="phone"
+              value={phone}
+              placeholder="Enter your phone number"
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+
+          <Form.Group >
+            <Form.Control size="md" 
+              type="password"
+              id="password"
+              value={password}
+              placeholder="Enter your password"
+              onChange={this.handleChange}
+              required
+            />
+          </Form.Group>
+
+        <div className="mb-sm-4">
+          <button type="submit" disabled={isLoading}> Create Account
+          {isLoading && (
+              <span className={styles.buttonLoading}>
+                <Circle color={'rgba(255,255,255,1)'} />
+              </span>
+            )}
+          </button>
+          <span className={styles.spa}> Already a member? <Link to="/login">Sign in</Link></span>
+        </div>
+      </Form>
+      </>
     );
   }
 }
