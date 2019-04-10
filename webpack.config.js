@@ -1,11 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
   console.log('env', env);
   return {
-    entry: "./src/app.js",
+    entry: "./src/index.js",
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
@@ -28,10 +29,18 @@ module.exports = (env) => {
           { 
             loader: 'css-loader',
             options: {
+              modules: true,  // we need to set module option for css-loader to be true. 
+              importLoaders: 1, // The importLoaders option configures how many loaders before css-loader should be applied. For example, sass-loader would have to come before css-loader.
+              localIdentName: "[name]_[local]_[hash:base64]", //see ****EXPLANATION***
               sourceMap: true
             }
           }
         ]
+      },
+      {
+        test: /\.(jpeg|jpg|JPG|png|gif|PNG)$/,
+        include: path.join(__dirname, 'src'),
+        loaders: ['file-loader']
       }
     ]
     },
@@ -40,12 +49,16 @@ module.exports = (env) => {
         filename: "[name].css",
         chunkFilename: "[id].css",
       }),
+      new HtmlWebpackPlugin({
+        template: 'public/index.html'
+      })
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, 'public/dist'),
       historyApiFallback: true,
-      publicPath: '/dist/'
+      hot:true,
+      watchContentBase: true,
     },
     performance: {
       hints: false

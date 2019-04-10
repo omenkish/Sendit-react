@@ -1,0 +1,45 @@
+export default [
+  {
+    id: 9,
+    placed_by: 1,
+    order_number: 'py11pyzr',
+    description: 'testing',
+    receiver_number: '0813333333',
+    weight: 9,
+    weight_metric: 'kg',
+    sent_on: '2019-04-06T23:56:17.410Z',
+    delivered_on: null,
+    status: 'delivered',
+    cancelled: false,
+    sender_address: 'portharcourt',
+    receiver_address: 'Ikorodu road',
+    current_location: 'Ilorin',
+    price: 42.3,
+    zip: 12345,
+    state: 'Gbagada',
+    created_at: '2019-04-06T23:56:17.410Z',
+    modified_at: '2019-04-06T23:56:17.410Z'
+  },
+
+  {
+    id: 1,
+    placed_by: 2,
+    order_number: 'py11pyzr',
+    description: 'testing',
+    receiver_number: '0813333333',
+    weight: 3,
+    weight_metric: 'kg',
+    sent_on: '2019-04-06T23:56:17.410Z',
+    delivered_on: null,
+    status: 'pending',
+    cancelled: false,
+    sender_address: 'portharcourt',
+    receiver_address: 'Ikorodu road',
+    current_location: 'Ilorin',
+    price: 42.3,
+    zip: 12345,
+    state: 'Lagos',
+    created_at: '2019-04-06T23:56:17.410Z',
+    modified_at: '2019-04-06T23:56:17.410Z'
+  }
+];

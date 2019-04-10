@@ -1,0 +1,660 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  font:15px/1.5 "Times New Roman", Times, serif;
+  padding:0;
+  margin: 0;
+  min-height: 100%;
+  background-color: #f1f1f1;
+}
+
+/* global*/
+header .container {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+.container {
+  width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+.adminBox {
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 23%;
+  padding: 10px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.pageContent{
+  padding-top: 60px;
+  
+  width: 100%;
+  overflow: auto;
+}
+.middle{
+  margin-top: 10%;
+}
+.btnToolbar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: unset; 
+  -ms-flex-pack: start;
+  justify-content: space-evenly;
+}
+.adminBox a{
+  text-decoration: none;
+  color: #35424a;
+}
+.dashboardContainer {
+  width: 94%;
+  margin: auto;
+  overflow: hidden;
+}
+.hide{
+  display: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.error {
+  background-color: #b22222;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+.success {
+  background-color: #3cb371;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 5px;
+  -webkit-animation-duration: 15s;animation-duration: 15s;
+  -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+/*header*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #35424a;
+  color: #ffffff;
+  padding: 10px;
+  min-height: 30px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+header li {
+  display: inline;
+  padding: 0 10px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header #branding h1 {
+  margin: 0;
+}
+header #branding a {
+ font-size: 30px;
+}
+header nav{
+  float: right;
+  margin-top: 6px;
+}
+
+header .highlight, header .current a {
+  color: #e8491d;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Hide the link that should open and close the topnav */
+ header .icon {
+    display: none;
+}
+/* sidebar */
+#left {
+  position: fixed;
+  height: 100%;
+  padding: 15px 15px 0 15px;
+  top: 70px;
+  left: 0;
+  background: #35424a;
+  width: 15%;
+  overflow: hidden;
+  z-index: 0;
+}
+#heading {
+  font:15px/0.9 "Times New Roman", Times, serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: #5F9EA0;
+}
+#left hr {
+  color: #CCC;
+  font-weight: bolder;
+}
+#left span {
+  display: block;
+  padding: 12px 10px;
+}
+#left a {
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+#left a:hover {
+  color: #5f9ea0;
+  cursor: pointer;
+}
+
+aside#sidebar { 
+  margin: 8px 0 0 6px;
+}
+
+/* Main section */
+section#main {
+  padding: 12px;
+  overflow-y: auto;
+  padding-bottom: 6%;
+  margin-left: 15%;
+}
+
+#main form {
+  position: relative;
+  padding: 15px;
+  margin: 0 1%;
+  background-color: #ffffff;
+  z-index: 1;
+}
+#main legend {
+  text-align: center;
+  font-weight: bolder;
+  color: #5F9EA0;
+}
+.formLeft {
+  float: left;
+  margin: 0 10px;
+  text-align: left;
+  width: 45%;
+  padding: 10px;
+ 
+}
+/*full width inputs*/
+ input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+select[name='metric'] {
+  width: 100%;
+  min-height: 12px;
+  
+}
+.order label{
+  padding: 10px;
+  float: left;
+  clear: both;
+}
+/* .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric'] {
+  width: 70%;
+  float: right;
+} */
+
+#main form textarea{
+  max-height: 40px;
+}
+#main form div.center{
+  clear: both;
+  margin-left: 30%;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* profile page */
+#profileTitle h1 {
+  color: #696969;
+  text-transform: capitalize; 
+  font-size: 35px;
+}
+
+/* boxes */
+#boxes {
+  margin-top: 8px;
+  padding-bottom: 6%;
+  margin-left: 15%;
+}
+#boxes div#proBox{
+  margin-left: 25%;
+}
+#boxes h3 {
+  color: #696969;
+  text-transform: capitalize;
+}
+
+#boxes #transit {
+  text-align: left;
+}
+
+#boxes #transit a {
+  text-decoration: none;
+  color: #5f9ea0;
+  font-weight: bold;
+  margin: 0 ;
+}
+
+#boxes .box {
+  float: left;
+  margin: 6px 10px;
+  text-align: center;
+  width: 45%;
+  padding: 10px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff;
+}
+.orderBox{
+  float: left;
+  margin: 6px 5px;
+  text-align: center;
+  width: 31%;
+  padding: 5px;
+  border-top: #35424a solid 3px;
+  border-bottom: #35424a solid 3px;
+  border-radius: 2%;
+  background: #ffffff;
+}
+
+h2#faText{
+  background-color: #f1f1f1;
+}
+
+#boxes .box img {
+  width: 150px;
+}
+ 
+.imgcontainer {
+  text-align: center;
+  margin:0;
+  border-bottom: #35424a solid 2px;
+}
+
+.avatar {
+  height: 20%;
+  width: 50%;
+  border-radius: 50%;
+}
+.submitbtn{
+  float: left;
+}
+#boxes .cancelbtn, #boxes .edit{
+  background-color: #35424a;
+}
+
+/* order page */
+#boxes #changeDestination {
+  position: relative;
+  width: 60%;
+  margin-left: 20%;
+  padding: 6px 15px;
+  background: #ffffff;
+  z-index: 1;
+}
+
+#boxes .order form input, textarea{
+  font-size: 15px;
+}
+
+.order form{
+  margin: 12px;
+  padding: 6px;
+  background-color: #ffffff;
+}
+
+.table span, a:hover{
+ text-decoration: none;
+ color: #5f9ea0;
+}
+.table span{
+  cursor: pointer;
+}
+/** Modal area**/
+
+/* Modal Header */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#myModal .modalBody h3{
+  color: red;
+}
+
+
+/* #moda.modalContent .modalFooter #cancelbtn, .modalFooter #cancelbtn{
+  margin-left: 80%;
+} */
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalHeader {
+  text-align: center;
+  padding: 2px 16px;
+  background-color: #35424a;
+  color: white;
+  border-top: #e8491d solid 2px;
+}
+
+/* Modal Body */
+.modalBody {
+  padding: 2px 16px;
+  min-height: 70px
+}
+
+/* Modal Content */
+.modalContent {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  top: 25%;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+/* Modal Footer */
+div.modalFooter {
+  padding: 2px 7px;
+  background-color: #35424a;
+  color: white;
+  border-bottom: #e8491d solid 3px;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* footer area */
+footer {
+  overflow: hidden;
+  position: absolute;
+  width: 85%;
+  bottom: 0;
+  right: 0;
+  background: #35424a;
+  max-height: 45px;
+  border-top: #e8491d solid 3px;
+  text-align: center;
+
+}
+footer .container {
+  width: inherit;
+  text-align: center;
+  clear: both;
+  margin-bottom: 12px;
+  padding: 0;
+  width: inherit;
+}
+
+footer p {
+  color: #ffffff;
+  font-weight: bold;
+}
+footer a {
+  color: #e8491d;
+  text-decoration: none;
+}
+/* Change style for span and cancel button on small screen */
+@media screen and (max-width: 764px) {
+  .container,  
+  #sidebar,
+  #main,
+  #boxes,
+  #deliveries,
+  .center
+ {
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    
+  }
+
+  .dashboardContainer {
+    width: 100%;
+    margin: 2px;
+    overflow: auto;
+  }
+  header {
+    position: unset;
+  }
+  
+  #main, #boxes {
+    margin-left: 6px;    
+  }
+  #boxes h2{
+    margin-left: 2%;
+  }
+  
+  .order label {
+    float: none;
+    clear: none;
+    padding: 5px;
+  }
+  #main input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number], select[name='metric']{
+    width: 94%;
+  }
+  #boxes input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    width: 94%;
+  }
+  
+  .order input[type=text],input[type=password],input[type=email],input[type=tel], textarea, input[type=number],select[name='metric'] {
+    float: none;
+    width: 94%;
+  }
+
+  #main form div.center{
+    margin-left: 8px;
+    width: 100%;
+  }
+  #boxes .box {
+    float: none;
+    display: inline-block;
+    width: 94%;
+    border: none; 
+    margin-left: 0; 
+  }
+  #profileTitle h1 {
+    text-align: center;
+    margin-top: 1%;
+    padding: 1%; 
+  }
+  #boxes .order{
+    width: 100%;
+    margin: 0 4% 0 0;
+    padding-bottom: 20%
+  }
+  #profileBox  .fa-stack{
+    width: 90%;
+    text-align: center;
+    margin-left: 0;
+  }
+  #boxes {
+    width: 98%;
+  }
+  #boxes div#proBox{
+    margin-left: 15px;
+  }
+
+  #boxes .order form input, textarea, select{
+    font-size: 15px;
+  }
+
+  #boxes #changeDestination {
+    width: 100%;
+    margin-left: unset; 
+  }
+  
+  #main div.formLeft {
+    float: none;
+    margin: 6px 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+   
+  }
+  footer{
+    display: none;
+    /* position: sticky;
+    width: 100%; */
+  }
+
+  .modalContent {
+    border: 1px solid #888;
+    top: 30%;
+    width: 90%;
+    animation-name: animatetop;
+    animation-duration: 0.6s
+  }
+
+  .modalBody #userParcel{
+    width: 100%;
+  }
+  .modal #userParcel p{
+    margin: 0 ;
+    display: block;
+    text-align: left;
+   
+  }
+  .modalFooter #cancelbtn {
+    
+    margin-left: unset;
+  }
+  .modalFooter #delete {
+    background-color: red;
+    margin-left: unset;
+  }
+  #changeDestination .center{
+    clear: both;
+    margin-left: 0;
+    width: 100%;
+  }
+  h1, h2, h3{
+    margin-top: 1%;
+    font-size: 16px;
+    font-weight: unset;
+  }
+  #main div.container{
+    margin-left: 0;
+    width: 100%
+  }
+  section#main {
+    padding: 5px;
+    overflow-y: none;
+    padding-bottom: 0;
+    margin-left: 0;
+  }
+
+  .adminBox {
+    float: none;
+    display: block;
+    margin-left: 1%;
+    width: 98%;
+    max-height: 10%;
+   
+  }
+
+  .adminBox .container{
+    max-width: 60%;
+    margin-left: 0;
+  }
+  .middle{
+    margin-top: 4%;
+  }
+}
