@@ -1,6 +1,6 @@
 # Build Status
 
-[![Build Status](https://travis-ci.com/omenkish/Sendit-react.svg?branch=development)](https://travis-ci.com/omenkish/Sendit-react)
+[[![Build Status](https://travis-ci.com/omenkish/Sendit-react.svg?branch=development)](https://travis-ci.com/omenkish/Sendit-react)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/69880f498a0510024dc7/test_coverage)](https://codeclimate.com/github/omenkish/Sendit-react/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/69880f498a0510024dc7/maintainability)](https://codeclimate.com/github/omenkish/Sendit-react/maintainability)
 
