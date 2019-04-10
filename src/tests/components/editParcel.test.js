@@ -15,13 +15,13 @@ const props = {
 
 
 const wrapper = shallow(<EditParcel id='1' {...props}/>);
-wrapper.setState({
-  receiver_address: '', 
-  zip: '', 
-  state: '',
-  location: '',
-  error: ''
-});
+// wrapper.setState({
+//   receiver_address: '', 
+//   zip: '', 
+//   state: '',
+//   location: '',
+//   error: ''
+// });
 
 const mockTarget =  (id, value ) => ({
   target: {
@@ -30,14 +30,18 @@ const mockTarget =  (id, value ) => ({
   }
 });
 
+const mockSubmit = {
+  preventDefault: jest.fn
+}
+
 describe('Test Profile page component', () => {
-  wrapper.setState({
-    receiver_address: '', 
-    zip: '', 
-    state: '',
-    location: '',
-    error: ''
-  });
+  // wrapper.setState({
+  //   receiver_address: '', 
+  //   zip: '', 
+  //   state: '',
+  //   location: '',
+  //   error: ''
+  // });
   it('should render Edit parcel page component', () => {
     expect(wrapper.length).toEqual(1);
   });
@@ -52,6 +56,47 @@ describe('Test Profile page component', () => {
     expect(wrapper.instance().state.state).toEqual('Test state');
     handleSpy(mockTarget('location', 'Test location'));
     expect(wrapper.instance().state.location).toEqual('Test location');
+
+   
   });
+
+  it('should call submit Function', () => {
+    props.type = "any";
+    wrapper.setProps({ ...props });
+    const handleSubmitSpy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+    handleSubmitSpy(mockSubmit);
+    expect(wrapper.instance().props.submitFunction).toHaveBeenCalled();
+  })
+
+
+  it('should call submit Function', () => {
+    props.type = "any";
+    wrapper.setProps({ ...props });
+    wrapper.setState({location: ""})
+    const handleSubmitSpy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+    handleSubmitSpy(mockSubmit);
+    expect(wrapper.instance().state.error).toEqual('Please provide a valid location')
+  })
+
+
+
+
+  it('should call submit Function', () => {
+    props.type = 'destination';
+    wrapper.setProps({ ...props });
+    const submitSpy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+    submitSpy(mockSubmit);
+   
+    expect(wrapper.instance().props.submitFunction).toHaveBeenCalled();
+  })
+
+  it('should call submit Function', () => {
+    props.type = 'destination';
+    wrapper.setProps({ ...props });
+    wrapper.setState({state: "", zip: ""});
+    const submitSpy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+    submitSpy(mockSubmit);
+    expect(wrapper.instance().state.error).toEqual('Please provide receiver_address zip code and state.')
+  })
 
 });

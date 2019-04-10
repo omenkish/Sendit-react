@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1554908263766" clover="3.2.0">
-  <project timestamp="1554908263766" name="All files">
-    <metrics statements="249" coveredstatements="226" conditionals="102" coveredconditionals="86" methods="68" coveredmethods="61" elements="419" coveredelements="373" complexity="0" loc="249" ncloc="249" packages="9" files="22" classes="22"/>
+<coverage generated="1554913144412" clover="3.2.0">
+  <project timestamp="1554913144412" name="All files">
+    <metrics statements="249" coveredstatements="239" conditionals="102" coveredconditionals="97" methods="68" coveredmethods="62" elements="419" coveredelements="398" complexity="0" loc="249" ncloc="249" packages="9" files="22" classes="22"/>
     <package name="assets.css">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="signin.css" path="/Users/kevinomede/Desktop/sendit/src/assets/css/signin.css">
@@ -21,25 +21,25 @@
       </file>
     </package>
     <package name="components">
-      <metrics statements="71" coveredstatements="54" conditionals="37" coveredconditionals="25" methods="28" coveredmethods="25"/>
+      <metrics statements="71" coveredstatements="67" conditionals="37" coveredconditionals="36" methods="28" coveredmethods="26"/>
       <file name="EditParcel.jsx" path="/Users/kevinomede/Desktop/sendit/src/components/EditParcel.jsx">
-        <metrics statements="16" coveredstatements="3" conditionals="13" coveredconditionals="2" methods="3" coveredmethods="2"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="19" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="53" count="7" type="stmt"/>
-        <line num="91" count="2" type="stmt"/>
+        <metrics statements="16" coveredstatements="16" conditionals="13" coveredconditionals="13" methods="3" coveredmethods="3"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="cond" truecount="5" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="54" count="15" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
       </file>
       <file name="ListUser.jsx" path="/Users/kevinomede/Desktop/sendit/src/components/ListUser.jsx">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>

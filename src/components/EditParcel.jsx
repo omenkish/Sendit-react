@@ -12,6 +12,7 @@ export class EditParcel extends Component {
     location: '',
     error: ''
   }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     const {receiver_address, zip, state, location } = this.state;
@@ -32,7 +33,7 @@ export class EditParcel extends Component {
     }
     else {
       if(!location) {
-        this.setState({ error: 'Please provide a valid location.'})
+        this.setState({ error: 'Please provide a valid location'})
       }
       else {
         const data = {
