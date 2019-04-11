@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiInstance = axios.create({
-  baseURL: 'http://eneojo-sendit.herokuapp.com/api/v1'
+  baseURL: 'https://eneojo-sendit.herokuapp.com/api/v1'
 });
 
 // intercept api requests and add auth token to the request headers

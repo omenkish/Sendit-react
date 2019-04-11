@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Aside from './common/Aside.jsx';
 import { getUserParcels } from '../redux/actions/userParcelsAction';
@@ -22,8 +23,14 @@ class DashboardPage extends Component {
           </div>
           <div className="col-12 col-lg-9" style={{position: 'unset'}}>
             <div className={style.pageContent}>
+              
               <div id={style.profileTitle}><h1>My Orders Section</h1></div>
-                <UserParcelsList parcels={this.props.userParcels}/>
+
+              { this.props.userParcels.length ? <UserParcelsList parcels={this.props.userParcels}/> : <h3 className="ml-4">
+                  You currently have no parcel delivery Orders. <Link to="/create">Create</Link> one.
+              </h3>
+            }
+                
             </div>
           </div>
         </div>

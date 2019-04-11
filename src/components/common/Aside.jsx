@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { decodeToken} from '../../services/authService';
 import styles from '../../assets/css/style.css'
 
 export default () => (
@@ -13,9 +14,6 @@ export default () => (
         </span>
         <span>
           <NavLink to="/dashboard"><i className="fa fa-plus"></i> My orders</NavLink>
-        </span>
-        <span>
-          <NavLink to="/orders"><i className="fa fa-folder-open"></i> Manage Orders</NavLink>
         </span>
         <span>
           <NavLink to="/users"><i className="fa fa-users"></i> All Users</NavLink>
