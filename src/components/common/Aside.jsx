@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { decodeToken} from '../../services/authService';
 import styles from '../../assets/css/style.css'
 
 export default () => (
