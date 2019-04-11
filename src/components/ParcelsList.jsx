@@ -78,7 +78,7 @@ class ParcelsList extends Component {
 
     return (
         <>
-        <Table responsive="sm" striped bordered size="sm" className={style.table}>
+        <Table responsive="sm" striped bordered size="sm" >
           <thead>
             <tr className="text text-center">
               <th>S/N</th>

@@ -15,12 +15,12 @@ class DashboardPage extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-0 col-md-2">
             <section id={style.left}>
               <Aside/>
             </section>
           </div>
-          <div className="col-md-9 ml-5">
+          <div className="col-12 col-lg-9" style={{position: 'unset'}}>
             <div className={style.pageContent}>
               <div id={style.profileTitle}><h1>My Orders Section</h1></div>
                 <UserParcelsList parcels={this.props.userParcels}/>

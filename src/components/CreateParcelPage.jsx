@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Aside from './common/Aside.jsx';
-import Input from './common/Input.jsx';
+import Form from 'react-bootstrap/Form';
 import TextArea from './common/TextArea.jsx';
 import { createParcel } from '../redux/actions/userParcelsAction';
 import style from '../assets/css/style.css';
@@ -12,7 +12,7 @@ class CreateParcel extends Component {
     receiver_number: '',
     weight: '',
     description: '',
-    weight_metric: '', 
+    weight_metric: 'kg', 
     sender_address: '', 
     receiver_address: '', 
     zip: '', 
@@ -43,120 +43,124 @@ class CreateParcel extends Component {
         <section id={style.left}>
           <Aside/>
         </section>
-
+        <div className="container">
         <div className={style.pageContent}>
-          <div id={style.profileTitle}><h1>Create Order Section</h1></div>
           <section id={style.main}>
             <div className={style.dashboardContainer}>
-                <form id={style.createParcel} onSubmit = {this.handleSubmit}>
+            
+              <Form id={style.createParcel} onSubmit = {this.handleSubmit}>
                   <fieldset>
                     <legend><h2>Create Parcel Delivery Order <i className="fa fa-edit"></i></h2></legend>
                     <div id="message"></div>
                   <div className={style.formLeft}>
           
-                    <Input 
-                      label="phone"
-                      text="Phone"
+                  <Form.Group >
+                    <Form.Label><strong>Receiver Phone</strong></Form.Label>
+                    <Form.Control 
                       type="tel"
                       placeholder="Enter contact phone number"
                       id="receiver_number"
                       value = {receiver_number}
-                      handleChange={this.handleChange}
+                      onChange={this.handleChange}
                       required
                     />
-                    <Input 
-                      label="weight"
-                      text="Weight"
-                      type="number"
-                      placeholder="Item weight"
-                      id="weight"
-                      value = {weight}
-                      handleChange={this.handleChange}
-                      required
-                    />
-                  
-                      <div>
-                        <label htmlFor="metric"><b>Weight metric: </b>
-                          <select  name="metric" required id="weight_metric" onChange={this.handleChange}>
-                          {
-                            options.map((c) => 
-                            <option key={c.text} value={c.value}>
-                              {c.text}
-                            </option>)
-                          }
-          
-                          </select>
-                        </label>
-                      </div>
-          
-                      <TextArea 
-                        label="description"
+                    </Form.Group>
+                    <Form.Group >
+                      <Form.Label><strong>Parcel Weight</strong></Form.Label>
+                      <Form.Control 
+                        type="number"
+                        placeholder="Item weight"
+                        id="weight"
+                        value = {weight}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </Form.Group>
+                    
+                    <Form.Group >
+                      <Form.Label><strong>Weight Metric</strong></Form.Label>
+                      <Form.Control as="select" name="metric" required id="weight_metric" onChange={this.handleChange}>
+                        <option value="kg">KG</option>
+                      </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group >
+                      <Form.Label><strong>Description</strong></Form.Label>
+                      <Form.Control 
+                        as="textarea" rows="1"
                         text="description"
                         placeholder="description"
                         id="description"
                         value = {description}
-                        handleChange={this.handleChange}
+                        onChange={this.handleChange}
                       />
-                    </div>
+                    </Form.Group>
+                  </div>
                         
-                    <div className={style.formLeft}>
-                    <Input 
-                      label="from"
-                      text="Sender Address: "
+                  <div className={style.formLeft}>
+                    <Form.Group >
+                    <Form.Label><strong>Sender Address</strong></Form.Label>
+                    <Form.Control 
                       type="text"
                       placeholder="Enter sender address"
                       id="sender_address"
                       value = {sender_address}
-                      handleChange={this.handleChange}
+                      onChange={this.handleChange}
                       required
                     />
-        
-                    <Input 
-                      label="to"
-                      text="Destination Address: "
-                      type="text"
-                      placeholder="Enter Destination Address"
-                      id="receiver_address"
-                      value = {receiver_address}
-                      handleChange={this.handleChange}
-                      required
-                    />  
-                    <Input 
-                      label="zip"
-                      text="Zip "
-                      type="number"
-                      placeholder="zip code"
-                      id="zip"
-                      value = {zip}
-                      handleChange={this.handleChange}
-                      required
-                      
-                    />  
+                    </Form.Group>
+
+                    <Form.Group >
+                      <Form.Label><strong>Receiver Address</strong></Form.Label>
+                      <Form.Control 
+                        type="text"
+                        placeholder="Enter Destination Address"
+                        id="receiver_address"
+                        value = {receiver_address}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group >
+                      <Form.Label><strong>Zip Code </strong></Form.Label>
+                      <Form.Control 
+                        type="number"
+                        placeholder="zip code"
+                        id="zip"
+                        value = {zip}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group >
+                      <Form.Label><strong>Destination State </strong></Form.Label>
+                      <Form.Control 
+                        type="text"
+                        placeholder="Enter Destination State"
+                        id="state"
+                        value = {state}
+                        onChange={this.handleChange}
+                        required
+                      />
+                    </Form.Group>
+                        
+                  </div>
                     
-                    <Input 
-                      label="state"
-                      text="State"
-                      type="text"
-                      placeholder="Enter Destination State"
-                      id="state"
-                      value = {state}
-                      handleChange={this.handleChange}
-                      required
-                    />  
-                      
-                    </div>
-                    
-                    <div className={style.center}>
-                        <button  type="submit"> Create order</button>
-                    </div>        
+                  <div >
+                      <button  type="submit" className={`btn ${style.createButton}`}> Create order</button>
+                  </div>        
                   
                   </fieldset>   
                       
-                </form>
+                </Form>
               
             </div>
           </section>
         </div>
+        </div>
+        
       </div>
     );
   }

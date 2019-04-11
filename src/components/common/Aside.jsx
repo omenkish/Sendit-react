@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from '../../assets/css/style.css'
 
 export default () => (
-    <aside id="sidebar">
+    <aside id={styles.sidebar}>
       <div className="">
         <span>
           <NavLink to="/profile"><i className="fa fa-user"></i> Profile</NavLink>
