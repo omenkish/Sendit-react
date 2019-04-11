@@ -31,9 +31,9 @@ npm run test
 
 ### Api Endpoints
 
-##### [App Endpoints](eneojo-sendit.herokuapp.com/)
+##### [App Endpoints](eneojo-sendit-react.herokuapp.com/)
 
-**base url** = `api\v1\parcels`
+**base url** = `eneojo-sendit-react.herokuapp.com`
 
  Http-Method   | Url           |
  ------------- |:-----------------:| 
@@ -49,16 +49,14 @@ ___
 * ##### [NodeJs](https://nodejs.org/en/download/)  - is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 * ##### [Express](https://expressjs.com/) - is a minimal and flexible Node.js web application 
 
-## Style Guide
-##### [Javascript Airbnb](https://github.com/airbnb/javascript)
 
 # Interface
 
-##### [App Ui](https://omenkish.github.io/sendIT/UI/index)
+##### [App Ui](eneojo-sendit-react.herokuapp.com)
 
 # Project management tool
 
-##### [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2213035)
+##### [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2326247)
 
 ##  Authors
 ##### `Eneojo K. Omede`
